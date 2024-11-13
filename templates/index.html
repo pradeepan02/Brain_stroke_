@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f9fc;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        label {
+            color: #333333;
+            font-weight: 600;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #4a90e2;
+            border-color: #4a90e2;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px 20px;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #357abd;
+            border-color: #357abd;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .mt-3 h3 {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Stroke Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter age" required>
+            </div>
+            <div class="form-group">
+                <label for="hypertension">Hypertension (0 = No, 1 = Yes)</label>
+                <input type="number" class="form-control" id="hypertension" name="hypertension" placeholder="0 or 1" required>
+            </div>
+            <div class="form-group">
+                <label for="heart_disease">Heart Disease (0 = No, 1 = Yes)</label>
+                <input type="number" class="form-control" id="heart_disease" name="heart_disease" placeholder="0 or 1" required>
+            </div>
+            <div class="form-group">
+                <label for="ever_married">Ever Married</label>
+                <select class="form-control" id="ever_married" name="ever_married" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="work_type">Work Type</label>
+                <select class="form-control" id="work_type" name="work_type" required>
+                    <option value="Private">Private</option>
+                    <option value="Self-employed">Self-employed</option>
+                    <option value="Govt_job">Govt_job</option>
+                    <option value="children">children</option>
+                    <option value="Never_worked">Never_worked</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="residence_type">Residence Type</label>
+                <select class="form-control" id="residence_type" name="residence_type" required>
+                    <option value="Urban">Urban</option>
+                    <option value="Rural">Rural</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="avg_glucose_level">Average Glucose Level</label>
+                <input type="number" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="Enter glucose level" required>
+            </div>
+            <div class="form-group">
+                <label for="bmi">BMI</label>
+                <input type="number" class="form-control" id="bmi" name="bmi" placeholder="Enter BMI" required>
+            </div>
+            <div class="form-group">
+                <label for="smoking_status">Smoking Status</label>
+                <select class="form-control" id="smoking_status" name="smoking_status" required>
+                    <option value="never smoked">Never smoked</option>
+                    <option value="smokes">Smokes</option>
+                    <option value="formerly smoked">Formerly smoked</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        
+        <div class="mt-3 text-center">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+    </div>
+</body>
+</html>
